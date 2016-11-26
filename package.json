@@ -1,0 +1,14 @@
+{
+  "name": "gladys-yeelight-wifi",
+  "version": "0.1.0",
+  "description": "Gladys module to control your Yeelight bulbs over WiFi.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Simon Richert",
+  "license": "ISC",
+  "dependencies": {
+      "http-headers": "~3.0.1"
+  }
+}
