@@ -5,3 +5,23 @@ Gladys module to control your Yeelight wifi bulbs
 1. Install the module through Gladys modules pannel and reboot Gladys when it's done.
 2. Go to the modules pannel and click 'Config'. This process takes around 8 secondes to complete.
 3. Your bulbs should now be listed in the devices pannel. If they are not, feel free to repeat step 2.
+
+# Usage
+After installation is done, you can control power, brightness, hue and saturation for each bulb in the devices pannel.
+If you need more complex things to happen, you can also call the 'send' function from scripts:
+```javascript
+gladys.modules.yeelight.send({id: device_id, method: 'method_name', params: []});
+```
+Methods names and their corresponding parameters can be found on the Yeelight API spec document:
+http://www.yeelight.com/download/Yeelight_Inter-Operation_Spec.pdf
+
+There's one exception though: the 'set_rgb' function requires an array [R, G, B] as first parameter instead of an integer.
+
+Some examples:
+```javascript
+gladys.modules.yeelight.send({id: 3, method: 'toggle'});
+gladys.modules.yeelight.send({id: 3, method: 'set_rgb', params: [[32, 0, 255], 'smooth', 1000]});
+
+gladys.modules.yeelight.send({id: 7, method: 'set_power', params: ['on']});
+gladys.modules.yeelight.send({id: 7, method: 'set_hsv', params: ['', 47]}); // Keep the current hue and set saturation to 47
+```
